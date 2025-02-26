@@ -13,6 +13,8 @@ class KeyboardCell: UICollectionViewCell {
   @IBOutlet weak var labelContainerView: UIView!
   private var string: String!
   var didSelectString: ((String) -> Void)!
+    
+
 
   required init?(coder: NSCoder) {
     super.init(coder: coder)
@@ -30,7 +32,10 @@ class KeyboardCell: UICollectionViewCell {
       Checkpoint: After finishing this exercise, you should now be able to see the keyboard laid out on the screen! If it's not working, check your work on exercises 1 & 2.
     */
     // START YOUR CODE HERE
-    // ...
+      labelContainerView.layer.cornerRadius = 4.0
+      labelContainerView.backgroundColor = .gray
+      self.string = string
+      label.text = string
     // END YOUR CODE HERE
   }
 
@@ -38,7 +43,7 @@ class KeyboardCell: UICollectionViewCell {
   // Checkpoint: After finishing this exercise, you should now be able to tap on a keyboard cell and have the letter shown on the board! If it's not working, check your work on exercises 3,4, and 5.
   @objc private func didTapString() {
     // START YOUR CODE HERE
-    // ...
+      didSelectString?(string)
     // END YOUR CODE HERE
   }
 }
